@@ -61,7 +61,7 @@ int main(void)
 	    printf("Printing quote : %s time : %s\n", lastQuote, lastDate);
 
 	    Paint_Clear(WHITE);
-	    GUI_ReadBmp("/home/pi/eInkRPiCryptoTicker/RaspberryPi/wiringpi/pic/BitcoinLogo-White.bmp", 0, 0);
+	    GUI_ReadBmp("/home/pi/eInkRPiCryptoTicker/RaspberryPi/wiringpi/pic/BitcoinLogo-Black.bmp", 0, 0);
 
 	    Paint_DrawString_EN(100, 10, "EUR", &Font20, WHITE, BLACK);
 	    Paint_DrawString_EN(100, 30, lastQuote, &Font20, WHITE, BLACK);

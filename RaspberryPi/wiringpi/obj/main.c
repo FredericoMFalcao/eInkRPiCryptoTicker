@@ -32,20 +32,20 @@ int main(void)
     DEV_Delay_ms(500);
 
     //Create a new image cache
-    UBYTE *BlackImage;
+    UBYTE *ImageBuffer;
     UWORD Imagesize = ((EPD_WIDTH % 8 == 0)? (EPD_WIDTH / 8 ): (EPD_WIDTH / 8 + 1)) * EPD_HEIGHT;
-    if((BlackImage = (UBYTE *)malloc(Imagesize)) == NULL) {
+    if((ImageBuffer = (UBYTE *)malloc(Imagesize)) == NULL) {
         printf("Failed to apply for memory...\r\n");
         exit(0);
     }
     printf("Paint_NewImage\r\n");
-    Paint_NewImage(BlackImage, EPD_WIDTH, EPD_HEIGHT, 270, BLACK);
+    Paint_NewImage(ImageBuffer, EPD_WIDTH, EPD_HEIGHT, 270, BLACK);
     Paint_SetMirroring(MIRROR_HORIZONTAL); //
 
    // show bmp    
     printf("show bmp\r\n");
     for (int i = 0; i < 1; i++) {
-	    Paint_SelectImage(BlackImage);
+	    Paint_SelectImage(ImageBuffer);
 
 	    /* Get the LATEST quote and date */
 	    char lastQuote[255], lastDate[255];
@@ -67,7 +67,7 @@ int main(void)
 	    Paint_DrawString_EN(100, 30, lastQuote, &Font20, WHITE, BLACK);
 	    Paint_DrawString_EN(40, 110, lastDate, &Font12, WHITE, BLACK);
 	    DEV_Delay_ms(5000);
-	    EPD_Display(BlackImage);
+	    EPD_Display(ImageBuffer);
 	    DEV_Delay_ms(5000);
     }
 
@@ -77,9 +77,9 @@ int main(void)
     printf("Goto Sleep mode...\r\n");
     EPD_Sleep();
     
-    if(NULL != BlackImage){
-        free(BlackImage);
-        BlackImage = NULL;        
+    if(NULL != ImageBuffer){
+        free(ImageBuffer);
+        ImageBuffer = NULL;        
     }
     return 0;
 }

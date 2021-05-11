@@ -63,9 +63,9 @@ int main(void)
 	    Paint_Clear(WHITE);
 	    GUI_ReadBmp("/home/pi/eInkRPiCryptoTicker/RaspberryPi/wiringpi/pic/BitcoinLogo-Black.bmp", 0, 0);
 
-	    Paint_DrawString_EN(100, 10, "EUR", &Font20, BLACK, WHITE);
-	    Paint_DrawString_EN(100, 30, lastQuote, &Font20, BLACK, WHITE);
-	    Paint_DrawString_EN(40, 110, lastDate, &Font12, BLACK, WHITE);
+	    Paint_DrawString_EN(100, 10, "EUR", &Font20, WHITE, BLACK);
+	    Paint_DrawString_EN(100, 30, lastQuote, &Font20, WHITE, BLACK);
+	    Paint_DrawString_EN(40, 110, lastDate, &Font12, WHITE, BLACK);
 	    DEV_Delay_ms(5000);
 	    EPD_Display(ImageBuffer);
 	    DEV_Delay_ms(5000);

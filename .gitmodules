@@ -1,0 +1,3 @@
+[submodule "web-scraper"]
+	path = web-scraper
+	url = https://github.com/cubiclesoft/ultimate-web-scraper
